@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Crear Estudiante</h2>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="formulario" (ngSubmit)="submitForm()">
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': formulario.get('Nombre')?.errors && formulario.get('Nombre')?.touched}" formControlName="Nombre" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('Nombre')?.errors?.['required'] && formulario.get('Nombre')?.touched">El campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': formulario.get('Documento')?.errors && formulario.get('Documento')?.touched}" formControlName="Documento" placeholder="Documento" aria-label="Documento" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('Documento')?.errors?.['required'] && formulario.get('Documento')?.touched">El campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="date" [ngClass]="{'form-control': true, 'is-invalid': formulario.get('FechaDeNacimiento')?.errors && formulario.get('FechaDeNacimiento')?.touched}" formControlName="FechaDeNacimiento" placeholder="Fecha De Nacimiento" aria-label="FechaDeNacimiento" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('FechaDeNacimiento')?.errors?.['required'] && formulario.get('FechaDeNacimiento')?.touched">El campo es requerido</small>
+                                <small *ngIf="formulario.get('FechaDeNacimiento')?.errors?.['errorEdad'] && formulario.get('FechaDeNacimiento')?.touched">Debe ser mayor de 18 años</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': formulario.get('Celular')?.errors && formulario.get('Celular')?.touched}" formControlName="Celular" placeholder="Celular" aria-label="Celular" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('Celular')?.errors?.['required'] && formulario.get('Celular')?.touched">El campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': formulario.get('Localidad')?.errors && formulario.get('password')?.touched}" formControlName="Localidad" placeholder="Localidad" aria-label="Localidad" aria-describedby="basic-addon1">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('Localidad')?.errors?.['required'] && formulario.get('Localidad')?.touched">El campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Enviar datos</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
